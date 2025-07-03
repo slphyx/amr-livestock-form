@@ -16,20 +16,10 @@ export default function Home() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const res = await fetch('/api/saveTest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error('Failed to submit');
-      alert('Test result submitted successfully');
-      setFormData({ farmId: '', animalType: '', testDate: '', testResult: '', notes: '' });
-    } catch (error) {
-      alert('Error submitting test result');
-    }
+    alert('Form submitted (no data saved in this version)');
+    setFormData({ farmId: '', animalType: '', testDate: '', testResult: '', notes: '' });
   };
 
   return (
